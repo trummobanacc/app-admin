@@ -1,0 +1,2575 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover">
+
+<meta name="theme-color"
+      content="#080b14">
+
+<meta name="mobile-web-app-capable"
+      content="yes">
+
+<meta name="apple-mobile-web-app-capable"
+      content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent">
+
+<title>Hùng Admin</title>
+
+<link rel="manifest"
+      href="./manifest.json">
+
+<link rel="icon"
+      href="./1787140316601.png">
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+}
+
+:root{
+
+    --bg:#080b14;
+
+    --card:#111827;
+
+    --card2:#0b1220;
+
+    --text:#ffffff;
+
+    --muted:#8490a8;
+
+    --border:rgba(255,255,255,.09);
+
+    --blue:#168cff;
+
+    --green:#00c985;
+
+    --red:#ff5571;
+
+    --purple:#7957ff;
+
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body{
+
+    min-height:100vh;
+
+    background:
+
+        radial-gradient(
+            circle at top right,
+            #12325c 0,
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at bottom left,
+            #102d27 0,
+            transparent 38%
+        ),
+
+        var(--bg);
+
+    color:var(--text);
+
+    padding:16px;
+
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container{
+
+    width:100%;
+
+    max-width:920px;
+
+    margin:auto;
+
+}
+
+
+/* =====================================================
+   HIDDEN
+===================================================== */
+
+.hidden{
+
+    display:none !important;
+
+}
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+.login{
+
+    min-height:
+        calc(100vh - 32px);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+.login-box{
+
+    width:100%;
+
+    max-width:390px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.025)
+        );
+
+    border:
+        1px solid var(--border);
+
+    border-radius:24px;
+
+    padding:26px;
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.35);
+
+}
+
+
+.login-logo{
+
+    width:72px;
+
+    height:72px;
+
+    object-fit:cover;
+
+    border-radius:19px;
+
+    display:block;
+
+    margin:
+        0 auto 15px;
+
+}
+
+
+.login-title{
+
+    text-align:center;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+}
+
+
+.login-desc{
+
+    text-align:center;
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    margin:
+        6px 0 22px;
+
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+input,
+select{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-bottom:10px;
+
+    border-radius:13px;
+
+    border:
+        1px solid var(--border);
+
+    background:var(--card2);
+
+    color:white;
+
+    outline:none;
+
+}
+
+
+input:focus,
+select:focus{
+
+    border-color:
+        var(--blue);
+
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+button{
+
+    border:none;
+
+    cursor:pointer;
+
+    color:white;
+
+}
+
+
+button:active{
+
+    transform:scale(.97);
+
+}
+
+
+.primary{
+
+    width:100%;
+
+    padding:14px;
+
+    border-radius:13px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #087eff,
+            #0055ff
+        );
+
+    font-weight:bold;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:18px;
+
+}
+
+
+.logo-area{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+
+.logo{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:15px;
+
+    object-fit:cover;
+
+}
+
+
+.title{
+
+    font-size:21px;
+
+    font-weight:bold;
+
+}
+
+
+.subtitle{
+
+    color:var(--muted);
+
+    font-size:11px;
+
+    margin-top:3px;
+
+}
+
+
+.logout{
+
+    background:#202b3d;
+
+    padding:10px 13px;
+
+    border-radius:11px;
+
+    font-size:12px;
+
+}
+
+
+/* =====================================================
+   STATS
+===================================================== */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:10px;
+
+    margin-bottom:14px;
+
+}
+
+
+.stat{
+
+    background:var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:17px;
+
+    padding:15px;
+
+}
+
+
+.stat-name{
+
+    color:var(--muted);
+
+    font-size:11px;
+
+}
+
+
+.stat-number{
+
+    font-size:23px;
+
+    font-weight:bold;
+
+    margin-top:7px;
+
+}
+
+
+/* =====================================================
+   PANEL
+===================================================== */
+
+.panel{
+
+    background:var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:18px;
+
+    margin-bottom:14px;
+
+}
+
+
+.panel-title{
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    margin-bottom:14px;
+
+}
+
+
+.grid2{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:10px;
+
+}
+
+
+/* =====================================================
+   ACTION
+===================================================== */
+
+.action{
+
+    width:100%;
+
+    padding:13px;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+}
+
+
+.blue{
+
+    background:#087eff;
+
+}
+
+
+.green{
+
+    background:#00a66e;
+
+}
+
+
+.purple{
+
+    background:#7257ff;
+
+}
+
+
+.red{
+
+    background:#df3451;
+
+}
+
+
+.gray{
+
+    background:#273246;
+
+}
+
+
+/* =====================================================
+   KEY LIST
+===================================================== */
+
+.key-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+
+.key-item{
+
+    background:var(--card2);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:17px;
+
+    padding:15px;
+
+}
+
+
+.key-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+}
+
+
+.key-code{
+
+    font-weight:bold;
+
+    word-break:break-all;
+
+    font-size:14px;
+
+}
+
+
+.badge{
+
+    padding:5px 8px;
+
+    border-radius:8px;
+
+    font-size:9px;
+
+    white-space:nowrap;
+
+    background:#087eff;
+
+}
+
+
+.badge.free{
+
+    background:#00a66e;
+
+}
+
+
+.badge.vip{
+
+    background:#7257ff;
+
+}
+
+
+.badge.off{
+
+    background:#df3451;
+
+}
+
+
+.key-info{
+
+    color:var(--muted);
+
+    font-size:11px;
+
+    line-height:1.8;
+
+    margin-top:8px;
+
+}
+
+
+.key-actions{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:7px;
+
+    margin-top:11px;
+
+}
+
+
+.key-actions button{
+
+    background:#202b3d;
+
+    border-radius:9px;
+
+    padding:9px 5px;
+
+    font-size:10px;
+
+}
+
+
+.empty{
+
+    color:var(--muted);
+
+    text-align:center;
+
+    padding:22px;
+
+    font-size:13px;
+
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.toast{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:20px;
+
+    transform:
+        translate(-50%,120px);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    background:#151d2d;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:13px;
+
+    padding:13px 18px;
+
+    font-size:12px;
+
+    transition:.25s;
+
+    z-index:100;
+
+}
+
+
+.toast.show{
+
+    opacity:1;
+
+    transform:
+        translate(-50%,0);
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:650px){
+
+    body{
+
+        padding:12px;
+
+    }
+
+
+    .stats{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+
+    .grid2{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .key-actions{
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+
+    .title{
+
+        font-size:18px;
+
+    }
+
+}
+
+
+/* =====================================================
+   DARK ONLY
+===================================================== */
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<!-- =====================================================
+     LOGIN
+===================================================== -->
+
+<section
+    id="loginScreen"
+    class="login"
+>
+
+    <div class="login-box">
+
+
+        <img
+            src="./1787140316601.png"
+            class="login-logo"
+            alt="Hùng Admin"
+        >
+
+
+        <div class="login-title">
+
+            HÙNG ADMIN
+
+        </div>
+
+
+        <div class="login-desc">
+
+            KEY CONTROL CENTER
+
+        </div>
+
+
+        <input
+            id="username"
+            type="text"
+            placeholder="Tên đăng nhập"
+            autocomplete="username"
+        >
+
+
+        <input
+            id="password"
+            type="password"
+            placeholder="Mật khẩu"
+            autocomplete="current-password"
+        >
+
+
+        <button
+            class="primary"
+            id="loginBtn"
+        >
+
+            🔐 ĐĂNG NHẬP
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ADMIN PANEL
+===================================================== -->
+
+<section
+    id="adminPanel"
+    class="hidden"
+>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+
+    <div class="logo-area">
+
+
+        <img
+            src="./1787140316601.png"
+            class="logo"
+            alt="icon"
+        >
+
+
+        <div>
+
+            <div class="title">
+
+                HÙNG ADMIN
+
+            </div>
+
+
+            <div class="subtitle">
+
+                KEY CONTROL CENTER
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <button
+        class="logout"
+        id="logoutBtn"
+    >
+
+        Đăng xuất
+
+    </button>
+
+
+</header>
+
+
+
+<!-- =====================================================
+     STATISTICS
+===================================================== -->
+
+<div class="stats">
+
+
+    <div class="stat">
+
+        <div class="stat-name">
+
+            Tổng KEY
+
+        </div>
+
+
+        <div
+            class="stat-number"
+            id="totalKeys"
+        >
+
+            0
+
+        </div>
+
+    </div>
+
+
+
+    <div class="stat">
+
+        <div class="stat-name">
+
+            Hoạt động
+
+        </div>
+
+
+        <div
+            class="stat-number"
+            id="activeKeys"
+        >
+
+            0
+
+        </div>
+
+    </div>
+
+
+
+    <div class="stat">
+
+        <div class="stat-name">
+
+            VIP
+
+        </div>
+
+
+        <div
+            class="stat-number"
+            id="vipKeys"
+        >
+
+            0
+
+        </div>
+
+    </div>
+
+
+
+    <div class="stat">
+
+        <div class="stat-name">
+
+            FREE
+
+        </div>
+
+
+        <div
+            class="stat-number"
+            id="freeKeys"
+        >
+
+            0
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     CREATE KEY
+===================================================== -->
+
+<div class="panel">
+
+
+    <div class="panel-title">
+
+        ➕ Tạo KEY
+
+    </div>
+
+
+    <div class="grid2">
+
+
+        <select id="keyType">
+
+            <option value="normal">
+
+                🔑 KEY thường
+
+            </option>
+
+
+            <option value="free">
+
+                🎁 KEY FREE
+
+            </option>
+
+
+            <option value="vip">
+
+                💎 KEY VIP
+
+            </option>
+
+        </select>
+
+
+        <input
+            id="duration"
+            type="number"
+            min="1"
+            placeholder="Thời hạn (giờ)"
+        >
+
+
+    </div>
+
+
+    <input
+        id="maxDevices"
+        type="number"
+        min="1"
+        value="1"
+        placeholder="Giới hạn thiết bị"
+    >
+
+
+    <button
+        class="action blue"
+        id="createBtn"
+    >
+
+        🔑 TẠO KEY
+
+    </button>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     KEY MANAGER
+===================================================== -->
+
+<div class="panel">
+
+
+    <div class="panel-title">
+
+        🔍 Quản lý KEY
+
+    </div>
+
+
+    <input
+        id="search"
+        type="search"
+        placeholder="Tìm KEY..."
+        autocomplete="off"
+    >
+
+
+    <div
+        id="keyList"
+        class="key-list"
+    ></div>
+
+
+</div>
+
+
+</section>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+    id="toast"
+    class="toast"
+></div>
+
+
+
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
+
+<script type="module">
+
+
+import {
+
+    initializeApp
+
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+
+    getDatabase,
+
+    ref,
+
+    set,
+
+    get,
+
+    update,
+
+    remove
+
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+
+
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
+
+
+const firebaseConfig = {
+
+
+    apiKey:
+        "AIzaSyDnbqCVFOzR1wo0dsbaXpUdNB9-UH32ceo",
+
+
+    authDomain:
+        "fir-runapp.firebaseapp.com",
+
+
+    databaseURL:
+        "https://fir-runapp-default-rtdb.firebaseio.com",
+
+
+    projectId:
+        "fir-runapp",
+
+
+    storageBucket:
+        "fir-runapp.firebasestorage.app",
+
+
+    messagingSenderId:
+        "570157490343",
+
+
+    appId:
+        "1:570157490343:web:665dafb5beca7d3e23fb82",
+
+
+    measurementId:
+        "G-E4JZQWQ94G"
+
+};
+
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+
+const app =
+    initializeApp(
+        firebaseConfig
+    );
+
+
+const db =
+    getDatabase(app);
+
+
+
+/* =====================================================
+   ADMIN TEST LOGIN
+===================================================== */
+
+
+const ADMIN_USERNAME =
+    "hungnb";
+
+
+const ADMIN_PASSWORD =
+    "0909244058@";
+
+
+
+/*
+    Đây là bản TEST.
+
+    Username/password đang nằm
+    phía client.
+
+    Không dùng cách này
+    cho hệ thống public thật.
+*/
+
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+
+let keys = {};
+
+let toastTimer;
+
+
+
+/* =====================================================
+   HELPER
+===================================================== */
+
+
+function $(id){
+
+    return document.getElementById(id);
+
+}
+
+
+
+function showToast(message){
+
+    const toast =
+        $("toast");
+
+
+    toast.textContent =
+        message;
+
+
+    toast.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        toastTimer
+    );
+
+
+    toastTimer =
+        setTimeout(
+            function(){
+
+                toast.classList.remove(
+                    "show"
+                );
+
+            },
+            2600
+        );
+
+}
+
+
+
+function formatDate(value){
+
+    if(
+        value === null ||
+        value === undefined
+    ){
+
+        return "♾️ Vĩnh viễn";
+
+    }
+
+
+    return new Date(
+        Number(value)
+    ).toLocaleString(
+        "vi-VN"
+    );
+
+}
+
+
+
+/* =====================================================
+   GENERATE KEY
+===================================================== */
+
+
+function generateKey(){
+
+    const chars =
+        "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+
+
+    let result =
+        "HUNG-";
+
+
+    for(
+        let i=0;
+        i<10;
+        i++
+    ){
+
+        result +=
+            chars[
+                Math.floor(
+                    Math.random() *
+                    chars.length
+                )
+            ];
+
+    }
+
+
+    return result;
+
+}
+
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+
+async function login(){
+
+    const username =
+        $("username")
+        .value
+        .trim();
+
+
+    const password =
+        $("password")
+        .value;
+
+
+    if(
+
+        username ===
+        ADMIN_USERNAME
+
+        &&
+
+        password ===
+        ADMIN_PASSWORD
+
+    ){
+
+        sessionStorage.setItem(
+            "adminLogin",
+            "true"
+        );
+
+
+        showAdmin();
+
+
+    }else{
+
+
+        showToast(
+            "❌ Sai tên đăng nhập hoặc mật khẩu."
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   SHOW ADMIN
+===================================================== */
+
+
+function showAdmin(){
+
+    $("loginScreen")
+        .classList
+        .add("hidden");
+
+
+    $("adminPanel")
+        .classList
+        .remove("hidden");
+
+
+    loadKeys();
+
+}
+
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+
+function logout(){
+
+    sessionStorage.removeItem(
+        "adminLogin"
+    );
+
+
+    location.reload();
+
+}
+
+
+
+/* =====================================================
+   CREATE KEY
+===================================================== */
+
+
+async function createKey(){
+
+    const type =
+        $("keyType")
+        .value;
+
+
+    let duration =
+        Number(
+            $("duration")
+            .value
+        );
+
+
+    const maxDevices =
+        Math.max(
+            1,
+            Number(
+                $("maxDevices")
+                .value
+            ) || 1
+        );
+
+
+    /*
+       FREE mặc định 12 giờ
+    */
+
+
+    if(
+
+        type === "free"
+
+        &&
+
+        !duration
+
+    ){
+
+        duration =
+            12;
+
+    }
+
+
+    let expiresAt =
+        null;
+
+
+
+    /*
+       VIP = vô hạn
+    */
+
+
+    if(
+        type !== "vip"
+    ){
+
+        if(
+
+            !duration
+
+            ||
+
+            duration < 1
+
+        ){
+
+            showToast(
+                "⚠️ Nhập thời hạn hợp lệ."
+            );
+
+            return;
+
+        }
+
+
+        expiresAt =
+            Date.now()
+
+            +
+
+            duration *
+            60 *
+            60 *
+            1000;
+
+    }
+
+
+
+    const key =
+        generateKey();
+
+
+
+    try{
+
+
+        await set(
+
+            ref(
+                db,
+                "keys/" + key
+            ),
+
+            {
+
+                key:key,
+
+                type:type,
+
+                active:true,
+
+                createdAt:
+                    Date.now(),
+
+                expiresAt:
+                    expiresAt,
+
+                maxDevices:
+                    maxDevices,
+
+                devices:{}
+
+            }
+
+        );
+
+
+
+        showToast(
+            "✅ Đã tạo " + key
+        );
+
+
+        $("duration")
+            .value = "";
+
+
+        await loadKeys();
+
+
+    }catch(error){
+
+
+        console.error(
+            error
+        );
+
+
+        showToast(
+            "❌ Firebase: " +
+            error.message
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   LOAD KEYS
+===================================================== */
+
+
+async function loadKeys(){
+
+    try{
+
+
+        const snapshot =
+            await get(
+                ref(
+                    db,
+                    "keys"
+                )
+            );
+
+
+        keys =
+            snapshot.exists()
+            ? snapshot.val()
+            : {};
+
+
+        renderKeys();
+
+
+    }catch(error){
+
+
+        console.error(
+            error
+        );
+
+
+        showToast(
+            "❌ Không đọc được Firebase."
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+
+function escapeHtml(text){
+
+    return text.replace(
+        /[&<>"']/g,
+
+        function(char){
+
+            return {
+
+                "&":"&amp;",
+
+                "<":"&lt;",
+
+                ">":"&gt;",
+
+                '"':"&quot;",
+
+                "'":"&#39;"
+
+            }[char];
+
+        }
+
+    );
+
+}
+
+
+
+/* =====================================================
+   RENDER KEYS
+===================================================== */
+
+
+function renderKeys(){
+
+    const list =
+        $("keyList");
+
+
+    const search =
+        $("search")
+        .value
+        .trim()
+        .toUpperCase();
+
+
+    list.innerHTML =
+        "";
+
+
+    const entries =
+
+        Object.entries(
+            keys
+        )
+
+        .filter(
+            function(entry){
+
+                return entry[0]
+                    .toUpperCase()
+                    .includes(search);
+
+            }
+        )
+
+        .reverse();
+
+
+
+    let active =
+        0;
+
+
+    let vip =
+        0;
+
+
+    let free =
+        0;
+
+
+
+    Object.values(
+        keys
+    )
+    .forEach(
+        function(data){
+
+
+            if(
+                data.active
+            ){
+
+                active++;
+
+            }
+
+
+            if(
+                data.type ===
+                "vip"
+            ){
+
+                vip++;
+
+            }
+
+
+            if(
+                data.type ===
+                "free"
+            ){
+
+                free++;
+
+            }
+
+        }
+    );
+
+
+
+    $("totalKeys")
+        .textContent =
+        Object.keys(
+            keys
+        ).length;
+
+
+    $("activeKeys")
+        .textContent =
+        active;
+
+
+    $("vipKeys")
+        .textContent =
+        vip;
+
+
+    $("freeKeys")
+        .textContent =
+        free;
+
+
+
+    if(
+        entries.length === 0
+    ){
+
+        list.innerHTML =
+
+            `<div class="empty">
+
+                Chưa có KEY.
+
+            </div>`;
+
+        return;
+
+    }
+
+
+
+    entries.forEach(
+        function(entry){
+
+            const key =
+                entry[0];
+
+
+            const data =
+                entry[1];
+
+
+            const expired =
+
+                data.expiresAt !==
+                null
+
+                &&
+
+                data.expiresAt !==
+                undefined
+
+                &&
+
+                Date.now() >
+                Number(
+                    data.expiresAt
+                );
+
+
+
+            let status;
+
+
+            if(
+                !data.active
+            ){
+
+                status =
+                    "🔒 Đã khóa";
+
+            }
+
+            else if(
+                expired
+            ){
+
+                status =
+                    "⏰ Hết hạn";
+
+            }
+
+            else{
+
+                status =
+                    "🟢 Hoạt động";
+
+            }
+
+
+
+            let typeName;
+
+
+            if(
+                data.type ===
+                "vip"
+            ){
+
+                typeName =
+                    "💎 VIP";
+
+            }
+
+            else if(
+                data.type ===
+                "free"
+            ){
+
+                typeName =
+                    "🎁 FREE";
+
+            }
+
+            else{
+
+                typeName =
+                    "🔑 Thường";
+
+            }
+
+
+
+            const deviceCount =
+
+                data.devices
+
+                ?
+
+                Object.keys(
+                    data.devices
+                ).length
+
+                :
+
+                0;
+
+
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+
+            item.className =
+                "key-item";
+
+
+
+            item.innerHTML = `
+
+                <div class="key-top">
+
+                    <div class="key-code">
+
+                        ${escapeHtml(key)}
+
+                    </div>
+
+
+                    <div class="
+                        badge
+                        ${data.type}
+                        ${!data.active
+                            ? "off"
+                            : ""}
+                    ">
+
+                        ${typeName}
+
+                    </div>
+
+                </div>
+
+
+                <div class="key-info">
+
+                    Trạng thái:
+                    ${status}
+
+                    <br>
+
+                    Hạn:
+                    ${formatDate(
+                        data.expiresAt
+                    )}
+
+                    <br>
+
+                    Thiết bị:
+                    ${deviceCount}
+                    /
+                    ${Number(
+                        data.maxDevices
+                    ) || 1}
+
+                </div>
+
+
+                <div class="key-actions">
+
+
+                    <button
+                        data-action="extend"
+                    >
+
+                        ⏳ Gia hạn
+
+                    </button>
+
+
+                    <button
+                        data-action="device"
+                    >
+
+                        📱 + Thiết bị
+
+                    </button>
+
+
+                    <button
+                        data-action="toggle"
+                    >
+
+                        ${
+                            data.active
+                            ? "🔒 Khóa"
+                            : "🔓 Mở"
+                        }
+
+                    </button>
+
+
+                    <button
+                        data-action="reset"
+                    >
+
+                        🔄 Reset
+
+                    </button>
+
+
+                    <button
+                        data-action="delete"
+
+                        style="
+                            grid-column:
+                            span 4;
+
+                            background:
+                            #3a1d27;
+                        "
+                    >
+
+                        🗑️ Xóa KEY
+
+                    </button>
+
+
+                </div>
+
+            `;
+
+
+
+            item
+            .querySelector(
+                '[data-action="extend"]'
+            )
+            .onclick =
+                function(){
+
+                    extendKey(
+                        key
+                    );
+
+                };
+
+
+
+            item
+            .querySelector(
+                '[data-action="device"]'
+            )
+            .onclick =
+                function(){
+
+                    addDevice(
+                        key
+                    );
+
+                };
+
+
+
+            item
+            .querySelector(
+                '[data-action="toggle"]'
+            )
+            .onclick =
+                function(){
+
+                    toggleKey(
+                        key,
+                        data.active
+                    );
+
+                };
+
+
+
+            item
+            .querySelector(
+                '[data-action="reset"]'
+            )
+            .onclick =
+                function(){
+
+                    resetDevices(
+                        key
+                    );
+
+                };
+
+
+
+            item
+            .querySelector(
+                '[data-action="delete"]'
+            )
+            .onclick =
+                function(){
+
+                    deleteKey(
+                        key
+                    );
+
+                };
+
+
+
+            list.appendChild(
+                item
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   EXTEND KEY
+===================================================== */
+
+
+async function extendKey(key){
+
+    const data =
+        keys[key];
+
+
+    if(
+        data.expiresAt ===
+        null
+
+        ||
+
+        data.expiresAt ===
+        undefined
+    ){
+
+        showToast(
+            "💎 KEY này đang vĩnh viễn."
+        );
+
+        return;
+
+    }
+
+
+
+    const hours =
+        Number(
+            prompt(
+                "Thêm bao nhiêu giờ?"
+            )
+        );
+
+
+    if(
+        !hours ||
+        hours < 1
+    ){
+
+        return;
+
+    }
+
+
+
+    let base =
+        Number(
+            data.expiresAt
+        );
+
+
+    if(
+        base <
+        Date.now()
+    ){
+
+        base =
+            Date.now();
+
+    }
+
+
+
+    await update(
+
+        ref(
+            db,
+            "keys/" + key
+        ),
+
+        {
+
+            expiresAt:
+
+                base
+
+                +
+
+                hours *
+                60 *
+                60 *
+                1000
+
+        }
+
+    );
+
+
+    showToast(
+        "✅ Đã gia hạn KEY."
+    );
+
+
+    loadKeys();
+
+}
+
+
+
+/* =====================================================
+   ADD DEVICES
+===================================================== */
+
+
+async function addDevice(key){
+
+    const amount =
+        Number(
+            prompt(
+                "Thêm bao nhiêu thiết bị?"
+            )
+        );
+
+
+    if(
+        !amount ||
+        amount < 1
+    ){
+
+        return;
+
+    }
+
+
+
+    const current =
+        Number(
+            keys[key]
+            .maxDevices
+        ) || 1;
+
+
+
+    await update(
+
+        ref(
+            db,
+            "keys/" + key
+        ),
+
+        {
+
+            maxDevices:
+                current +
+                amount
+
+        }
+
+    );
+
+
+    showToast(
+        "📱 Đã tăng giới hạn thiết bị."
+    );
+
+
+    loadKeys();
+
+}
+
+
+
+/* =====================================================
+   TOGGLE
+===================================================== */
+
+
+async function toggleKey(
+    key,
+    current
+){
+
+    await update(
+
+        ref(
+            db,
+            "keys/" + key
+        ),
+
+        {
+
+            active:
+                !current
+
+        }
+
+    );
+
+
+    showToast(
+
+        current
+
+        ?
+
+        "🔒 Đã khóa KEY."
+
+        :
+
+        "🔓 Đã mở KEY."
+
+    );
+
+
+    loadKeys();
+
+}
+
+
+
+/* =====================================================
+   RESET DEVICES
+===================================================== */
+
+
+async function resetDevices(key){
+
+    if(
+
+        !confirm(
+            "Reset toàn bộ thiết bị của KEY này?"
+        )
+
+    ){
+
+        return;
+
+    }
+
+
+
+    await update(
+
+        ref(
+            db,
+            "keys/" + key
+        ),
+
+        {
+
+            devices:{}
+
+        }
+
+    );
+
+
+    showToast(
+        "🔄 Đã reset thiết bị."
+    );
+
+
+    loadKeys();
+
+}
+
+
+
+/* =====================================================
+   DELETE KEY
+===================================================== */
+
+
+async function deleteKey(key){
+
+    if(
+
+        !confirm(
+            "Xóa KEY " +
+            key +
+            "?"
+        )
+
+    ){
+
+        return;
+
+    }
+
+
+
+    await remove(
+
+        ref(
+            db,
+            "keys/" + key
+        )
+
+    );
+
+
+    showToast(
+        "🗑️ Đã xóa KEY."
+    );
+
+
+    loadKeys();
+
+}
+
+
+
+/* =====================================================
+   EVENTS
+===================================================== */
+
+
+$("loginBtn")
+    .onclick =
+    login;
+
+
+$("logoutBtn")
+    .onclick =
+    logout;
+
+
+$("createBtn")
+    .onclick =
+    createKey;
+
+
+$("search")
+    .oninput =
+    renderKeys;
+
+
+
+$("password")
+    .addEventListener(
+        "keydown",
+        function(event){
+
+            if(
+                event.key ===
+                "Enter"
+            ){
+
+                login();
+
+            }
+
+        }
+    );
+
+
+
+/* =====================================================
+   SESSION
+===================================================== */
+
+
+if(
+
+    sessionStorage.getItem(
+        "adminLogin"
+    )
+
+    ===
+
+    "true"
+
+){
+
+    showAdmin();
+
+}
+
+</script>
+
+
+
+<!-- =====================================================
+     SERVICE WORKER
+===================================================== -->
+
+<script>
+
+if(
+    "serviceWorker"
+    in navigator
+){
+
+    window.addEventListener(
+        "load",
+        function(){
+
+            navigator
+            .serviceWorker
+            .register(
+                "./sw.js"
+            )
+
+            .then(
+                function(){
+
+                    console.log(
+                        "Hùng Admin PWA: OK"
+                    );
+
+                }
+            )
+
+            .catch(
+                function(error){
+
+                    console.error(
+                        "Service Worker:",
+                        error
+                    );
+
+                }
+            );
+
+        }
+    );
+
+}
+
+</script>
+
+
+</body>
+</html>
